@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minimum Number Calculator</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      input[type="text"] {
+        padding: 8px;
+        margin: 5px;
+      }
+
+      button {
+        padding: 10px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+      #result {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Find Minimum of Two Numbers</h2>
+      <label for="num1">Enter First Number:</label>
+      <input type="text" id="num1" /><br />
+      <label for="num2">Enter Second Number:</label>
+      <input type="text" id="num2" /><br />
+      <button onclick="findMinimum()">Find Minimum</button><br />
+      <div id="result"></div>
+    </div>
+
+    <script>
+      function findMinimum() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+
+        var minimum = Math.min(num1, num2);
+
+        document.getElementById("result").innerHTML =
+          "Minimum number: " + minimum;
+      }
+    </script>
+  </body>
+</html>

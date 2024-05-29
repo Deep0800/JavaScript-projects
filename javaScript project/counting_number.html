@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll Counter</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        
+        height: 2000px;
+    }
+
+    #counter {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        font-size: 18px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+<div id="counter">0</div>
+
+<script>
+    let count = 0;
+    const counterElement = document.getElementById('counter');
+
+    function updateCounter() {
+        counterElement.textContent = count;
+    }
+
+    function handleScroll() {
+        count++;
+        updateCounter();
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    updateCounter();
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <style>
+      .container {
+        width: 400px;
+        margin: 20px auto;
+        border: 1px solid #030303;
+        padding: 20px;
+        background-color: #e97575;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      .todo-item {
+        display: flex;
+        align-items: center;
+      }
+
+      .todo-item span {
+        flex: 1;
+      }
+
+      .add-todo {
+        margin-top: 20px;
+        display: flex;
+      }
+
+      .add-todo input[type="text"] {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #030303;
+      }
+
+      .add-todo button {
+        margin-left: 20px;
+        padding: 8px 20px;
+        border: none;
+        background-color: #641c13;
+        color: #fff;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Todo List</h2>
+      <ul id="todoList">
+      </ul>
+      <div class="add-todo">
+        <input type="text" id="todoInput" placeholder="Enter a new task" />
+        <button id="addTodo">Add</button>
+      </div>
+    </div>
+
+    <script>
+      const todoList = document.getElementById("todoList");
+      const todoInput = document.getElementById("todoInput");
+      const addTodoBtn = document.getElementById("addTodo");
+
+      function addTodo() {
+        const todoText = todoInput.value.trim();
+        if (todoText !== "") {
+          const todoItem = document.createElement("li");
+          todoItem.classList.add("todo-item");
+          todoItem.innerHTML = `
+        <span>${todoText}</span>
+        <button class="delete">Delete</button>
+      `;
+          todoList.appendChild(todoItem);
+          todoInput.value = ""; 
+        }
+      }
+
+      addTodoBtn.addEventListener("click", addTodo);
+
+      todoList.addEventListener("click", (event) => {
+        if (event.target.classList.contains("delete")) {
+          event.target.parentElement.remove();
+        }
+      });
+    </script>
+  </body>
+</html>
